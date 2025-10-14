@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Beranda - Gereja YP II{% endblock %}
+
+{% block content %}
+<section class="container-satu">
+    <main class="content-tengah">
+        <h1>"TOTUS TUUS"</h1>
+    </main>
+</section>
+
+<section class="container-dua">
+    <h1>Jadwal Misa</h1>
+    <hr class="divider">
+
+    <div class="jadwal-card">
+        <div class="jadwal-image">
+            <img src="{% static '\img\foto-misa.png' %}" alt="Misa Mingguan">
+        </div>
+
+        <div class="jadwal-info">
+            <h2>Misa Mingguan</h2>
+            <div class="jadwal-detail">
+                <p><strong>Hari:</strong> Minggu</p>
+                    <p><strong>Waktu:</strong> 07.00 WIB</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container-tiga">
+    
+    </div>
+</section>
+{% endblock %}
