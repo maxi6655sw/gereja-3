@@ -1,47 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Jadwal Misa{% endblock %}
 {% block content %}
-<section class="container-satu">
-    <main class="content-tengah">
-        <h1>"TOTUS TUUS"</h1>
-    </main>
-</section>
-
 <section class="container-dua">
-    <h1>Kegiatan Mendatang</h1>
-    <div class="kegiatan-detail-wrapper">
-        <h2 class="kegiatan-judul">Pemberkatan Gereja</h2>
-        <div class="detail-baris">
-            <span class="detail-label">TANGGAL</span>
-            <span class="detail-separator">:</span>
-            <span class="detail-value">Sabtu, 26 Oktober 2025</span>
+  <h1>Jadwal Misa</h1>
+  <hr class="divider">
+
+  <div class="jadwal-wrapper">
+    {% for misa in jadwal %}
+    <div class="jadwal-card">
+      <div class="jadwal-image">
+        {% if misa.gambar %}
+          <img src="{{ misa.gambar.url }}" alt="{{ misa.nama_misa }}">
+        {% else %}
+          <img src="{% static 'img/default.jpg' %}" alt="Tidak ada gambar">
+        {% endif %}
+      </div>
+      <div class="jadwal-info">
+        <h2>{{ misa.nama_misa }}</h2>
+        <div class="jadwal-detail">
+          <p><strong>Hari:</strong> {{ misa.hari }}</p>
+          <p><strong>Waktu:</strong> {{ misa.waktu }}</p>
         </div>
-        <div class="detail-baris">
-            <span class="detail-label">TEMPAT</span>
-            <span class="detail-separator">:</span>
-            <span class="detail-value">Gereja Santo Yohanes Paulus II</span>
-        </div>
+      </div>
     </div>
+    {% endfor %}
+  </div>
 </section>
 
-<section class="container-tiga">
-    <div class="content-jadwal-wrapper">
-        <h1 class="jadwal-misa-title">Jadwal Misa & Sakramen Tobat</h1>
-        <div class="jadwal-grid">
-            <div class="jadwal-kolom">
-                <h2>Gereja St. Yohanes Paulus II</h2>
-                <div class="detail-misa">
-                    <p>Jumat Pertama</p><p>Pkl 05:30</p>
-                    <p>Sabtu</p><p>Pkl 16:30</p>
-                    <p>Minggu</p><p>Pkl 07:00</p><p>Pkl 10:00</p><p>Pkl 16:30</p>
-                </div>
-                <div class="detail-tobart">
-                    <p class="tobart-title">Sakramen Tobat - Jumat</p>
-                    <p class="tobart-time">Pkl 17:00 - 19:00</p>
-                    <p class="tobart-note">(kecuali Jumat Pertama)</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 {% endblock %}

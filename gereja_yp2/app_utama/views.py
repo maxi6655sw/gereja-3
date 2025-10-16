@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from .models import JadwalMisa
+from .models import Berita, Kategori
+from django.shortcuts import render, get_object_or_404
+
 
 # Create your views here.
 def index(request):
@@ -12,3 +16,30 @@ def jadwal_misa(request):
 
 def jadwal_petugas(request):
     return render(request, 'jadwal_petugas.html')
+
+def jadwal_misa(request):
+    jadwal = JadwalMisa.objects.all().order_by('hari', 'waktu')
+    return render(request, 'jadwal_misa.html', {'jadwal': jadwal})
+
+def kilas_berita(request):
+    berita_list = Berita.objects.all().order_by('-tanggal')
+    return render(request, 'kilas_berita.html', {'berita_list': berita_list})
+
+
+
+def detail_berita(request, slug):
+    berita = get_object_or_404(Berita, slug=slug)
+
+    if berita.kategori:
+        berita_terkait = (
+            Berita.objects.filter(kategori=berita.kategori)
+            .exclude(id=berita.id)
+            .order_by('-tanggal')[:3]
+        )
+    else:
+        berita_terkait = Berita.objects.exclude(id=berita.id).order_by('-tanggal')[:3]
+
+    return render(request, 'detail_berita.html', {
+        'berita': berita,
+        'berita_terkait': berita_terkait
+    })
