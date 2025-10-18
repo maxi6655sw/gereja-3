@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import JadwalMisa
 from .models import Berita, Kategori
 from django.shortcuts import render, get_object_or_404
+import random
 
 
 # Create your views here.
@@ -42,4 +43,14 @@ def detail_berita(request, slug):
     return render(request, 'detail_berita.html', {
         'berita': berita,
         'berita_terkait': berita_terkait
+    })
+
+
+def home(request):
+    # Ambil semua berita lalu pilih 3 secara acak
+    semua_berita = list(Berita.objects.all())
+    berita_acak = random.sample(semua_berita, min(len(semua_berita), 3))
+
+    return render(request, 'home.html', {
+        'berita_acak': berita_acak
     })

@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Jadwal Misa{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/jadwal_misa.css' %}?v=20241016-4">
+{% endblock %}
+
 {% block content %}
-<section class="container-dua">
+<section class="gambar awal">
+  <img src="{% static 'img/header-atas.jpg' %}" alt="Gambar Header Atas">
+</section>
+
+<section class="jadwal_misa-container">
   <h1>Jadwal Misa</h1>
   <hr class="divider">
 

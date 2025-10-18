@@ -251,157 +251,200 @@ body, h1, h2, h3, a, span {
   drop-shadow: 0 0.5rem 4rem rgba(29, 29, 29, 0.1);
 }
 
-/* kontener dua start */
-
 .container-dua {
-  min-height: 75vh;
-  margin: 80px auto;
-  padding: 0 20px;
+  min-height: 65vh;
+  padding: 80px 7%;
+  background-color: #fff;
   text-align: center;
-
 }
 
 .container-dua h1 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  font-weight: 700;
   color: #222;
+  margin-bottom: 10px;
 }
 
 .divider {
   width: 100px;
   height: 4px;
   background-color: rgb(255, 196, 0);
-  margin: 0 auto 20px;
+  margin: 0 auto 40px;
   border-radius: 2px;
-  
 }
 
+/* ====== Layout dua kolom ====== */
 .jadwal-wrapper {
-  background: #fff;
-  border-radius: 15px;
-  padding: 30px 40px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
   max-width: 1000px;
   margin: 0 auto;
-}
-
-.jadwal-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: left;
-  padding: 30px 7%;
-  gap: 40px;
+  flex-wrap: wrap;
   background: #fff;
-  border-left: 8px solid rgb(255, 196, 0);
-  border-radius: 0;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  margin: 40px 0;
-  width: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  padding: 40px 50px;
 }
 
-.jadwal-card:last-child {
-  border-bottom: none; /* Hilangkan garis pemisah terakhir */
-}
-
-.jadwal-card:hover {
-  transform: translateY(-3px);
-  border-left-color: rgb(255, 180, 0);
-}
-
-/* ====== Gambar ====== */
-.jadwal-image {
-  flex: 0 0 auto;
-}
-
-.jadwal-image img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* ====== Info Misa ====== */
+/* ====== Kiri: Info ====== */
 .jadwal-info {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: left;
 }
 
 .jadwal-info h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #111;
-  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 20px;
 }
 
 .jadwal-detail p {
   font-size: 1.1rem;
   color: #444;
-  margin: 4px 0;
+  margin-bottom: 8px;
 }
 
+/* ====== Kanan: Gambar ====== */
+.jadwal-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.jadwal-image img {
+  width: 100%;
+  max-width: 420px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.jadwal-image img:hover {
+  transform: scale(1.03);
+}
+
+/* ====== Responsif ====== */
 @media (max-width: 900px) {
-  .jadwal-card {
-    flex-direction: column;
+  .jadwal-wrapper {
+    flex-direction: column-reverse;
     text-align: center;
-    align-items: center;
-    gap: 16px;
-    border-left: none;
-    border-top: 4px solid rgb(255, 196, 0);
+    padding: 25px;
+  }
+
+  .jadwal-info {
+    text-align: center;
+  }
+
+  .jadwal-image img {
+    max-width: 100%;
+    height: 220px;
   }
 }
 
+/* ===============================
+   Container Tiga - Kilas Berita Preview
+   =============================== */
+.container-tiga {
+  padding: 80px 7%;
+  background-color: #fdfdfd;
+  text-align: center;
+}
 
-.jadwal-card:hover {
+.container-tiga h1 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.container-tiga .divider {
+  width: 100px;
+  height: 4px;
+  background-color: rgb(255, 196, 0);
+  margin: 0 auto 50px;
+  border-radius: 2px;
+}
+
+/* ====== Layout ====== */
+.berita-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.berita-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  width: 320px;
+  overflow: hidden;
+  text-align: left;
+  transition: 0.3s ease all;
+}
+
+.berita-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
-.jadwal-image {
-  flex: 0 0 auto; /* Pastikan gambar tidak meregang */
-}
-
-.jadwal-image img {
-  width: 200px;
+/* ====== Gambar ====== */
+.berita-img img {
+  width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
 }
 
-.jadwal-info {
-  flex: 1; /* Isi ruang yang tersisa */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
+/* ====== Info ====== */
+.berita-info {
+  padding: 20px;
 }
 
-.jadwal-info h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
+.berita-info h2 {
+  font-size: 1.3rem;
   color: #111;
-  margin-bottom: 0.5rem;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
-.jadwal-detail p {
-  font-size: 1.1rem;
-  color: #444;
-  margin: 4px 0;
+.ringkasan {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
 }
 
-.jadwal-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+.btn-selengkapnya {
+  display: inline-block;
+  background: rgb(255, 196, 0);
+  color: #fff;
+  font-weight: 600;
+  padding: 7px 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
-/* kontener dua end */
+.btn-selengkapnya:hover {
+  background: #ffb700;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .berita-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
 
 
 
